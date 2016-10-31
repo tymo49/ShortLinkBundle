@@ -1,0 +1,21 @@
+{% extends 'tymo49ShortlinkBundle:Default:base.html.twig' %}
+{% block body %}
+    <h1>Shorten link</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    {% if link.name %}Your short adres:<br> <a href="{{ url('link_redir', {'linkname': link.name}) }}">
+        {{ url('link_redir', {'linkname': link.name}) }}
+        </a>{% endif %}
+    {% if linkExist %} Your short adres:<br> <a href="{{ url('link_redir', {'linkname': linkExist.name}) }}">
+        {{ url('link_redir', {'linkname': linkExist.name}) }}
+    </a>{% endif %}
+    <ul>
+        <li>
+            <a href="{{ path('link_index') }}">Go to admin site</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'tymo49ShortlinkBundle:Default:base.html.twig' %}
+{% block body %}
+    <h1>Link edit</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Confirm" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('link_index') }}"><input type="button" value="Back"></a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

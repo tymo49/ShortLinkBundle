@@ -1,0 +1,39 @@
+{% extends 'tymo49ShortlinkBundle:Default:base.html.twig' %}
+{% block body %}
+    <h1>Link list</h1>
+    <ul>
+        <li>
+            <a href="{{ path('link_new') }}"><input type="button" value="Create a new link"></a>
+        </li>
+    </ul>
+
+    <table style="border:1px solid black;">
+        <thead>
+            <tr>
+                <th style="border:2px solid black;">Link</th>
+                <th style="border:2px solid black;">Name</th>
+                <th style="border:2px solid black;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for link in links %}
+            <tr>
+                <td style="border:1px solid black;">{{ link.link }}</td>
+                <td style="border:1px solid black;">{{ link.name }}</td>
+                <td style="border:1px solid black;">
+                    <ul>
+                        <li>
+                            <a href="{{ path('link_show', { 'id': link.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('link_edit', { 'id': link.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

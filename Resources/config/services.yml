@@ -1,0 +1,8 @@
+services:
+  tymo49.sl.strGenerator:
+      class: tymo49\ShortlinkBundle\Service\StringGenerator\StringGenerator
+      arguments: []
+
+  tymo49.sl.uniqueLinkName:
+      class: tymo49\ShortlinkBundle\Service\UniqueLinkName\UniqueLinkName
+      arguments: ['@doctrine.orm.entity_manager','@tymo49.sl.strGenerator','%tymo49.sl%']
